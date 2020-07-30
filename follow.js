@@ -4,7 +4,9 @@ const level = document.querySelector('.level');
 const followPathWrapper = document.querySelector('.follow-path');
 const userPathWrapper = document.querySelector('.user-path');
 const startMenu = document.querySelector('.start-menu');
+const infoMenu = document.querySelector('.game-info');
 const playButton = document.querySelector('.play-button');
+const continueButton = document.querySelector('.continue-button');
 const restartMenu = document.querySelector('.restart-menu');
 const playAgainButton = document.querySelector('.play-again');
 const scoreDiv = document.querySelector('.best-score');
@@ -124,13 +126,18 @@ function correctWay(){
         count++;
         saveScore(count);
         result.innerText = 'Status: Nice!';
-        level.innerText = `Level: ${count}`;
-        
+        level.innerText = `Level ${count}`;
+        level.classList.add('pop-level');
+
         setTimeout(()=>{
-            result.innerText = 'Status: Wainting!';
-            userWay = [];
-            pathWay = [];
-            markPath();
+            level.classList.remove('pop-level');
+            setTimeout(() => {
+                result.innerText = 'Status: Wainting!';
+                userWay = [];
+                pathWay = [];
+                markPath();
+                
+            }, 300);
         },2000)
         
     }else{
@@ -171,8 +178,13 @@ function showResult(){
 }
 
 function startGame(){
-    hideElement(startMenu);
+    hideElement(infoMenu);
     setTimeout(()=> markPath(),1000);
+}
+
+function showInfoMenu(){
+    hideElement(startMenu);
+    showElement(infoMenu);
 }
 
 function restartGame(){
@@ -224,6 +236,12 @@ function getScore(){
     return scoreStorage
 }
 
+function lauchGame(){
+    hideElement(infoMenu);
+    hideElement(restartMenu);
+    showElement(startMenu);
+} 
+
 function showElement(element){
     element.style.visibility = 'visible';
 }
@@ -233,8 +251,10 @@ function hideElement(element){
 
 
 createBoard()
+lauchGame();
 
-playButton.addEventListener('click',startGame);
+playButton.addEventListener('click',showInfoMenu);
+continueButton.addEventListener('click',startGame);
 playAgainButton.addEventListener('click',restartGame);
 
 
