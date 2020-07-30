@@ -3,6 +3,7 @@
     padding:0;
     box-sizing: border-box;
 }
+
 :root{
     --grid-size: 410px;
     --path-size: calc(var(--grid-size)/4);
@@ -222,6 +223,7 @@ p b {
     padding: 5px;
     background: #fbf3f352;
     text-shadow: -1px -2px 10px black;
+    visibility: hidden;
 }
 
 .pop-level{
@@ -259,6 +261,7 @@ p b {
     padding: 5px;
     background: #fbf3f352;
     text-shadow: -1px -2px 10px black;
+    visibility: hidden;
 }
 
 .follow-path{
@@ -273,6 +276,7 @@ p b {
     padding: 2px 2px;
     color: white;
     font-size: 1.3em;
+    visibility: hidden;
 }
 
 .user-path{
@@ -287,6 +291,7 @@ p b {
     padding: 2px 2px;
     color: white;
     font-size: 1.3em;
+    visibility: hidden;
 }
 .user-path span,
 .follow-path span{

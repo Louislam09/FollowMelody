@@ -21,7 +21,7 @@ let userWay = [];
 
 let canClick = false;
 
-const sounds = [
+let sounds = [
     'sounds/A4.mp3',
     'sounds/Ab4.mp3',
     'sounds/B4.mp3',
@@ -39,12 +39,12 @@ const sounds = [
     'sounds/F4.mp3',
     'sounds/G4.mp3',
     'sounds/Gb4.mp3'
-]
+];
 
 window.addEventListener('load',()=>{
     score = getScore();
     console.log(score)
-})
+});
 
 function createBoard(){
     for(let i=0; i<width*width; i++){
@@ -64,6 +64,7 @@ function playSound(id){
     sound.currectTime = 0;
     sound.play()
 }
+
 function stopSound(id){
     let sound = new Audio(sounds[id]);
     sound.pause()
@@ -72,7 +73,6 @@ function stopSound(id){
 function randomId(){
     return parseInt(paths[Math.floor(Math.random()*paths.length)].id)
 }
-
 
 async function markPath(){
     let lastNumber = 0;
@@ -116,7 +116,6 @@ function clickPath(e){
         }
     }
 }
-
 
 function correctWay(){
     let match = pathWay.every((id,index)=>pathWay[index] === userWay[index]);
@@ -179,6 +178,10 @@ function showResult(){
 
 function startGame(){
     hideElement(infoMenu);
+    showElement(result);
+    showElement(level);
+    showElement(followPathWrapper);
+    showElement(userPathWrapper);
     setTimeout(()=> markPath(),1000);
 }
 
@@ -239,16 +242,20 @@ function getScore(){
 function lauchGame(){
     hideElement(infoMenu);
     hideElement(restartMenu);
+    hideElement(result);
+    hideElement(level);
+    hideElement(followPathWrapper);
+    hideElement(userPathWrapper);
     showElement(startMenu);
 } 
 
 function showElement(element){
     element.style.visibility = 'visible';
 }
+
 function hideElement(element){
     element.style.visibility = 'hidden';
 }
-
 
 createBoard()
 lauchGame();
