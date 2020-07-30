@@ -1,0 +1,200 @@
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+:root{
+    --grid-size: 410px;
+    --path-size: calc(var(--grid-size)/4);
+}
+
+
+html,body{
+    height: 100%;
+}
+
+body{
+    background: repeating-linear-gradient(45deg, #0d4221,#222f7e 100%);
+    font-family: monospace;
+}
+
+.game{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    
+}
+
+.grid{
+    display: flex;
+    flex-wrap: wrap;
+    width: var(--grid-size);
+    height: var(--grid-size);
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+.start-menu,.restart-menu{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    width: var(--grid-size);
+    height: var(--grid-size);
+    border: 1px solid white;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.822);
+    z-index: 999;
+}
+.restart-menu .best-score{
+    position: absolute;
+    top: 20%;
+    left: 12%;
+    color: black;
+    font-size: 3em;
+    font-weight: bolder;
+    border-radius: 15px;
+    border: 2px solid #000;
+    padding: 5px 15px;
+    background: #ffffffc5;
+    text-shadow: -1px -2px 5px black;
+}
+.restart-menu{
+    visibility: hidden;
+}
+
+.start-menu .play-button,
+.play-again{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    width: fit-content;
+    font-size: 2em;
+    padding: 10px 40px;
+    border: 2px solid black;
+    border-radius: 15px;
+    font-weight: bolder;
+    text-shadow: -1px -2px 5px black;
+    background:white;
+    outline: none;
+    transition: .4s linear;
+}
+
+.play-button:hover,
+.play-again:hover{
+    border: 2px solid white;
+    background:black;
+    color: white;
+    transform:  translate(-50%,-50%) scale(1.2);
+    letter-spacing: 5px;
+}
+
+.path{
+    width: 100px;
+    height:  100px;
+    border: 1px solid white;
+    margin: 1px;
+    transition: .4s;
+    color: white;
+    font-size: 2em;
+    text-align: center;
+    line-height: 90px;
+    text-shadow: -1px -2px 10px black;
+}
+
+.path:hover{
+    border: 2px solid cyan;
+}
+
+.click-path{
+    background: cyan;
+}
+
+.chose-path{
+    background: lightblue;
+}
+
+.wrong-path{
+    background: red;
+}
+
+.correct-path{
+    background: rgb(19, 126, 19);
+}
+
+.level{
+    position: absolute;
+    top: 5%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    color: white;
+    font-size: 2em;
+    text-align: center;
+}
+
+.result{
+    position: absolute;
+    top:12%;
+    left:50%;
+    width: fit-content;
+    transform: translate(-50%,-50%);
+    color: white;
+    font-size: 2em;
+    text-align: center;
+}
+
+.follow-path{
+    position: absolute;
+    left:50%;
+    bottom: 6%;
+    transform: translate(-50%,-50%);
+    width: 410px;
+    height: 40px;
+    /* border: 1px solid white; */
+    border-radius: 5px;
+    padding: 2px 2px;
+    color: white;
+    font-size: 1.3em;
+}
+
+.user-path{
+    position: absolute;
+    left:50%;
+    bottom: -2%;
+    transform: translate(-50%,-50%);
+    width: 410px;
+    height: 40px;
+    /* border: 1px solid white; */
+    border-radius: 5px;
+    padding: 2px 2px;
+    color: white;
+    font-size: 1.3em;
+}
+.user-path span,
+.follow-path span{
+    color: white;
+    font-size: 1.3em;
+    border: 1px solid white;
+    padding: 4px;
+    margin: 5px;
+}
+.follow-path span{
+    background: #139043;
+}
+.user-path span{
+    background: #fb0202;
+}
+
+
+@media only screen and (min-width: 360px) and (max-width: 450px){
+    body{
+        transform: scale(0.8)
+    }
+}  
+@media only screen and (min-width: 451px) and (max-width: 1023px){
+    body{
+        transform: scale(0.9)
+    }
+}  
