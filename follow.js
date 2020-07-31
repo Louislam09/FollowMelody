@@ -212,7 +212,7 @@ function restartGame(){
 
 function vibrateAtWrong(){
     if(navigator){
-        navigator.vibrate([1000])
+        navigator.vibrate([1000,200])
     }
 }
 
