@@ -21,7 +21,7 @@ let userWay = [];
 
 let canClick = false;
 
-let sounds = [
+const sounds = [
     'sounds/A4.mp3',
     'sounds/Ab4.mp3',
     'sounds/B4.mp3',
